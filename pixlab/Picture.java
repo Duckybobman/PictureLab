@@ -173,12 +173,12 @@ public class Picture extends SimplePicture
     Pixel topPixel = null;
     Pixel bottomPixel = null;
     int length = pixels.length;
-    for (int row = 0; row < pixels.length; row++)
+    for (int row = 0; row < pixels[0].length; row++)
     {
       for (int col = 0; col < length / 2; col++)
       {
-        topPixel = pixels[row][col];
-        bottomPixel = pixels[row][length - 1 - col];
+        topPixel = pixels[col][row];
+        bottomPixel = pixels[length-1-col][row];
         bottomPixel.setColor(topPixel.getColor());
       }
     } 
@@ -192,7 +192,8 @@ public class Picture extends SimplePicture
     Pixel rightPixel = null;
     int count = 0;
     Pixel[][] pixels = this.getPixels2D();
-    
+    //start c102, end c295
+    //start r160 end mirrorpoint:190
     // loop through the rows
     for (int row = 27; row < 97; row++)
     {
@@ -204,6 +205,30 @@ public class Picture extends SimplePicture
         rightPixel = pixels[row]                       
                          [mirrorPoint - col + mirrorPoint];
         rightPixel.setColor(leftPixel.getColor());
+      }
+    }
+  }
+  
+  public void mirrorArms()
+  {
+    int mirrorPoint = 192;
+    Pixel topPixel = null;
+    Pixel bottomPixel = null;
+    int count = 0;
+    Pixel[][] pixels = this.getPixels2D();
+    //start c102, end c295
+    //start r160 end mirrorpoint:190
+    // loop through the rows
+    for (int row = 102; row < 295; row++)
+    {
+      // loop from 13 to just before the mirror point
+      for (int col = 165; col < mirrorPoint; col++)
+      {
+        
+        topPixel = pixels[col][row];      
+        bottomPixel = pixels[mirrorPoint - col + mirrorPoint]                       
+                         [row];
+        bottomPixel.setColor(topPixel.getColor());
       }
     }
   }
