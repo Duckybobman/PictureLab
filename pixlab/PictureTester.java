@@ -53,10 +53,18 @@ public class PictureTester
   
   public static void testMirrorArms()
   {
-    Picture temple = new Picture("snowman.jpg");
-    temple.explore();
-    temple.mirrorArms();
-    temple.explore();
+    Picture snow = new Picture("snowman.jpg");
+    snow.explore();
+    snow.mirrorArms();
+    snow.explore();
+  }
+  
+  public static void testMirrorGull()
+  {
+    Picture gull = new Picture("seagull.jpg");
+    gull.explore();
+    gull.mirrorGull();
+    gull.explore();
   }
   
   /** Method to test the collage method */
@@ -104,9 +112,9 @@ public class PictureTester
     testMirrorHorizontal();
     testMirrorTemple();
     testMirrorArms();
-    //testMirrorGull();
+    testMirrorGull();
     //testMirrorDiagonal();
-    //testCollage();
+    testCollage();
     //testCopy();
     //testEdgeDetection();
     //testEdgeDetection2();
